@@ -26,28 +26,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.engine('ejs', engine);
 app.set('view engine', 'ejs'); 
 
-
-app.post('/create-user', function(req, res, next){
-    var user = new User();
-
-    user.profile.name = req.body.name;
-    user.password = req.body.password;
-    user.email = req.body.email;
-
-    user.save(function(err){
-        if (err) next(err);
-
-        res.json('Created new user');
-    });
-});
-
-app.get('/', function(req, res){
-    res.render('main/home');
-});
-
-app.get('/about', function(req, res){
-    res.render('main/about');
-});
+var mainRoutes = require('./routes/main');
+var userRoutes = require('./routes/user.js');
+app.use(mainRoutes);
+app.use(userRoutes);
 
 
 app.listen(3000, function(err){
