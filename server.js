@@ -35,9 +35,11 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
     secret: secret.secretKey,
-    store: new MongoStore({ url: secret.database, autoReconnect: True})
+    store: new MongoStore({ url: secret.database, autoReconnect: true})
 }));
 app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.engine('ejs', engine);
 app.set('view engine', 'ejs'); 
