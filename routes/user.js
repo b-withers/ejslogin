@@ -3,7 +3,7 @@ var User = require('../models/user');
 var passport = require('passport');
 var passportConfig = require('../config/passport');
 
-router.get('./login', function(req, res){
+router.get('/login', function(req, res){
     if(req.user) return res.redirect('/');
     res.render('accounts/login', { message: req.flash('loginMessage')});
 });
@@ -13,6 +13,13 @@ router.post('/login', passport.authenticate('local-login', {
     failureRedirect: '/login',
     failureFlash: true
 }));
+
+router.get('/profile', function(req, res, next){
+   User.findOne({ _id: req.user._id }, function(err, user) {
+       if (err) return next(err);
+      res.render('accounts/profile', {user: user});
+   });
+});
 
 router.get('/signup', function(req, res, next){
     res.render('accounts/signup', {
