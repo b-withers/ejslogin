@@ -33,6 +33,7 @@ router.post('/signup', function(req, res, next){
     user.profile.name = req.body.name;
     user.email = req.body.email;
     user.password = req.body.password;
+    user.profile.picture = user.gravatar();
     
 
     User.findOne({ email: req.body.email }, function(err, existingUser){
