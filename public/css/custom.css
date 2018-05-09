@@ -1,4 +1,8 @@
-body{
-    padding-top: 100px;
+body {
+  padding-top: 100px;
 }
 
+#navbar-gap {
+  margin-top: -4%;
+
+}
