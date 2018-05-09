@@ -5,7 +5,7 @@
 <div class="col-lg-6 col-md-offset-3">
 
 <% if (message.length > 0) { %>
-    <div class="alert alert-danger alert-dismissible">
+    <div class="alert alert-successs alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden = "true">&times;</span>
         </button>
@@ -16,15 +16,12 @@
 
     <form method="post">
 
-        <h2>Login:</h2>
+        <h2>Add a new Category</h2>
 <div class"form-group">   
-        <label="name">Email: </label>
-        <input type="email" class="form-control" name="email"><div class"form-group"></div>
+        <label="name">Name: </label>
+        <input type="text" class="form-control" name="name">
 </div>
-<div class"form-group">
-        <label="name">Password: </label>
-        <input type="password" class="form-control" name="password">
-</div>
+
 <br>
 <button type="submit" class="btn btn-success">Submit</button>
 
